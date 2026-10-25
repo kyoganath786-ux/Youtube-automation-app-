@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: youtube_automation_db
+    environment:
+      POSTGRES_USER: yt_admin
+      POSTGRES_PASSWORD: yt_secure_password
+      POSTGRES_DB: youtube_automation
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/migrations:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:7-alpine
+    container_name: youtube_automation_redis
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: youtube_automation_api
+    environment:
+      PORT: 8080
+      DATABASE_URL: postgres://yt_admin:yt_secure_password@postgres:5432/youtube_automation
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+
+volumes:
+  pgdata:

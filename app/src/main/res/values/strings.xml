@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">YouTube Automation AI</string>
+    <string name="tagline">Bilingual AI Video &amp; Shorts Automation</string>
+    <string name="language_select">Select Language / மொழியை தேர்ந்தெடுக்கவும்</string>
+    <string name="english">English</string>
+    <string name="tamil">தமிழ் (Tamil)</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_home">Home</string>
+    <string name="nav_chat">AI Chat</string>
+    <string name="nav_wizard">Wizard</string>
+    <string name="nav_editor">Editor</string>
+    <string name="nav_shorts">Shorts</string>
+    <string name="nav_thumbnails">Thumbnails</string>
+    <string name="nav_voice">Voice</string>
+    <string name="nav_projects">Projects</string>
+    <string name="nav_automation">Automation</string>
+    <string name="nav_channel">Channel</string>
+    <string name="nav_publish">Publish</string>
+    <string name="nav_analytics">Analytics</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Actions & Buttons -->
+    <string name="btn_create_video">Create Video</string>
+    <string name="btn_create_shorts">Create Shorts</string>
+    <string name="btn_generate">Generate with AI</string>
+    <string name="btn_render">Render Video</string>
+    <string name="btn_publish">Publish to YouTube</string>
+    <string name="btn_save">Save Changes</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_connect_yt">Connect YouTube Channel</string>
+    <string name="btn_disconnect">Disconnect Channel</string>
+    <string name="btn_start_automation">Start Workflow</string>
+
+    <!-- Statuses -->
+    <string name="status_draft">Draft</string>
+    <string name="status_rendering">Rendering</string>
+    <string name="status_ready">Ready to Publish</string>
+    <string name="status_published">Published</string>
+</resources>

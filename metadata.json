@@ -1,0 +1,6 @@
+{
+  "name": "YouTube Automation AI",
+  "description": "AI-powered video creation, Shorts generator, thumbnail maker, voice narration, automation, publishing, and analytics for YouTube.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

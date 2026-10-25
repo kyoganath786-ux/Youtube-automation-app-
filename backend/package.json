@@ -1,0 +1,29 @@
+{
+  "name": "youtube-automation-ai-backend",
+  "version": "1.0.0",
+  "description": "Cloud backend for YouTube Automation AI",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "pg": "^8.11.5",
+    "bullmq": "^5.7.1",
+    "ioredis": "^5.4.1",
+    "googleapis": "^137.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.12.7",
+    "@types/pg": "^8.11.5",
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2"
+  }
+}

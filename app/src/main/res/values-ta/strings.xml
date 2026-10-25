@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">YouTube Automation AI</string>
+    <string name="tagline">இருமொழி AI வீடியோ &amp; ஷார்ட்ஸ் ஆட்டோமேஷன்</string>
+    <string name="language_select">மொழியை தேர்ந்தெடுக்கவும்</string>
+    <string name="english">English</string>
+    <string name="tamil">தமிழ் (Tamil)</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_home">முகப்பு</string>
+    <string name="nav_chat">AI அரட்டை</string>
+    <string name="nav_wizard">வழிகாட்டி</string>
+    <string name="nav_editor">திருத்தி</string>
+    <string name="nav_shorts">ஷார்ட்ஸ்</string>
+    <string name="nav_thumbnails">முகப்புப்படம்</string>
+    <string name="nav_voice">குரல்</string>
+    <string name="nav_projects">திட்டங்கள்</string>
+    <string name="nav_automation">தானியங்கி</string>
+    <string name="nav_channel">சேனல்</string>
+    <string name="nav_publish">வெளியிடு</string>
+    <string name="nav_analytics">பகுப்பாய்வு</string>
+    <string name="nav_settings">அமைப்புகள்</string>
+
+    <!-- Actions & Buttons -->
+    <string name="btn_create_video">வீடியோ உருவாக்கு</string>
+    <string name="btn_create_shorts">ஷார்ட்ஸ் உருவாக்கு</string>
+    <string name="btn_generate">AI மூலம் உருவாக்கு</string>
+    <string name="btn_render">ரெண்டர் செய்</string>
+    <string name="btn_publish">யூடியூபில் வெளியிடு</string>
+    <string name="btn_save">சேமிக்க</string>
+    <string name="btn_cancel">ரத்து செய்</string>
+    <string name="btn_connect_yt">யூடியூப் சேனலை இணைக்கவும்</string>
+    <string name="btn_disconnect">சேனலை துண்டிக்கவும்</string>
+    <string name="btn_start_automation">பணியை தொடங்கு</string>
+
+    <!-- Statuses -->
+    <string name="status_draft">வரைவு</string>
+    <string name="status_rendering">ரெண்டரிங் ஆகிறது</string>
+    <string name="status_ready">வெளியிட தயார்</string>
+    <string name="status_published">வெளியிடப்பட்டது</string>
+</resources>

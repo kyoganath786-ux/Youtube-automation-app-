@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "YouTube Automation AI REST API",
+    "version": "1.0.0",
+    "description": "Secure cloud API for bilingual AI video generation, Shorts creation, media processing, and YouTube publishing."
+  },
+  "servers": [
+    {
+      "url": "https://api.youtubeautomation.ai/api/v1",
+      "description": "Production API Server"
+    }
+  ],
+  "paths": {
+    "/projects": {
+      "get": {
+        "summary": "List all projects for authenticated user",
+        "responses": {
+          "200": { "description": "Array of projects" }
+        }
+      },
+      "post": {
+        "summary": "Create a new project",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["title", "topic", "format", "targetLanguage"],
+                "properties": {
+                  "title": { "type": "string" },
+                  "topic": { "type": "string" },
+                  "format": { "type": "string", "enum": ["shorts", "standard"] },
+                  "targetLanguage": { "type": "string", "enum": ["en", "ta"] },
+                  "durationSeconds": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Project created successfully" }
+        }
+      }
+    },
+    "/generations/scripts": {
+      "post": {
+        "summary": "Generate AI script with bilingual support (English or Tamil)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["topic", "language", "format"],
+                "properties": {
+                  "topic": { "type": "string" },
+                  "language": { "type": "string", "enum": ["en", "ta"] },
+                  "format": { "type": "string", "enum": ["shorts", "standard"] },
+                  "targetDurationSeconds": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Structured script with scenes and narration" }
+        }
+      }
+    },
+    "/generations/voice": {
+      "post": {
+        "summary": "Synthesize voiceover audio using neural TTS",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text", "voiceId", "language"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "voiceId": { "type": "string" },
+                  "language": { "type": "string", "enum": ["en", "ta"] },
+                  "speed": { "type": "number", "default": 1.0 },
+                  "pitch": { "type": "number", "default": 1.0 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Generated audio URL and duration metadata" }
+        }
+      }
+    },
+    "/renders": {
+      "post": {
+        "summary": "Submit a video rendering job to the queue",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["projectId", "resolution", "aspectRatio"],
+                "properties": {
+                  "projectId": { "type": "string" },
+                  "resolution": { "type": "string", "enum": ["1080p", "4k"] },
+                  "aspectRatio": { "type": "string", "enum": ["9:16", "16:9"] },
+                  "includeSubtitles": { "type": "boolean" },
+                  "subtitleFont": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": { "description": "Render job enqueued with jobId" }
+        }
+      }
+    },
+    "/jobs/{jobId}": {
+      "get": {
+        "summary": "Get job progress and status",
+        "parameters": [
+          { "name": "jobId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Job details, progress percentage, and output" }
+        }
+      }
+    },
+    "/youtube/uploads": {
+      "post": {
+        "summary": "Publish or schedule video to authorized YouTube channel",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["projectId", "channelId", "title", "privacyStatus"],
+                "properties": {
+                  "projectId": { "type": "string" },
+                  "channelId": { "type": "string" },
+                  "title": { "type": "string" },
+                  "description": { "type": "string" },
+                  "tags": { "type": "array", "items": { "type": "string" } },
+                  "privacyStatus": { "type": "string", "enum": ["public", "unlisted", "private"] },
+                  "scheduledPublishTime": { "type": "string", "format": "date-time" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Upload started, returns tracking ID" }
+        }
+      }
+    },
+    "/analytics/channel": {
+      "get": {
+        "summary": "Get authorized channel telemetry and performance metrics",
+        "parameters": [
+          { "name": "channelId", "in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Views, subscribers, watch time, and top videos" }
+        }
+      }
+    }
+  }
+}
